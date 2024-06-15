@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import DynamicForm from './dynamicForm';
+import Door from './pages/door';
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import CreateDoor from './pages/door';
+import ViewList from './pages/door/viewList';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/dynamic-form" element={<DynamicForm />} />
+          <Route path="/createDoor" element={<CreateDoor />} />
+          <Route path="/list" element={<ViewList />} />
+          <Route path="*" element={<Navigate to="/list" />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
