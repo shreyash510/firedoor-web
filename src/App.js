@@ -5,6 +5,7 @@ import Door from './pages/door';
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import CreateDoor from './pages/door';
 import ViewList from './pages/door/viewList';
+import DetailsView from './pages/door/detailsView';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/dynamic-form" element={<DynamicForm />} />
           <Route path="/createDoor" element={<CreateDoor />} />
           <Route path="/list" element={<ViewList />} />
+          <Route path="/:id" element={<DetailsView/>} />
           <Route path="*" element={<Navigate to="/list" />} />
         </Routes>
       </BrowserRouter>
