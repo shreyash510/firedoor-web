@@ -29,23 +29,25 @@ const DetailsView = (props) => {
   console.log('Door Details:', doorDetails);
   return (
     <>
-    <button className='btn btn-primary m-2' onClick={() => navigation('/list')}>Go Back</button>
-      <div class="card text-center">
-        <div class="card-header">
+      <button className='btn btn-primary m-2' onClick={() => navigation('/list')}>Go Back</button>
+      <div class="d-flex ">
+        <div class="w-25 m-3 d-flex align-items-center">
           <QRCode
             value={doorDetails?.id || 'No QR Code'}
             size={100}
           />
+        </div>
+        <div className='w-75 m-3'>
           <h1>{doorDetails?.doorName}</h1>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">{doorDetails?.id}</h5>
-          <p class="card-text">{doorDetails?.manufacturer}</p>
-          <a href="#" class="btn btn-primary">{doorDetails?.doorType}</a>
-        </div>
-        <div class="card-footer text-muted">
-          This is a details view of door
+          <div class=" ">
+            <p style={{fontSize: '10px', fontWeight: 'bold'}} class="card-title">{doorDetails?.id}</p>
+            <p  class="card-text m-0">{doorDetails?.manufacturer}</p>
+            <p class='m-0'>{doorDetails?.doorType}</p>
           </div>
+          <div class="">
+            This is a details view of door
+          </div>
+        </div>
       </div>
     </>
   )

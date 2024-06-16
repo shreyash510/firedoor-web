@@ -47,33 +47,35 @@ const ViewList = () => {
             <div className='mt-4 d-flex justify-content-end mr-4'>
                 <button onClick={handleCreateDoor} className='btn btn-primary'>Create Door</button>
             </div>
-            <table className='table'>
-                <thead>
-                    <tr>
-                        <th scope='col'>ID</th>
-                        <th scope='col'>Door Name</th>
-                        <th scope='col'>Door Type</th>
-                        <th scope='col'>Manufacturer</th>
-                        <th scope='col'>Certification</th>
-                        <td>Action</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {doorList.map((door, index) => (
-                        <tr key={index} className='border'>
-                            <td>{door.id}</td>
-                            <td>{door.doorName}</td>
-                            <td>{door.doorType}</td>
-                            <td>{door.manufacturer}</td>
-                            <td>{door.certification}</td>
-                            <td>
-                                <button onClick={()=>handleView(door.id)} className='btn btn-primary mr-3'>View</button>
-                                <button onClick={() => handleDelete(door.id)} className='btn btn-danger'>Delete</button>
-                            </td>
+            <div style={{overflow: 'scroll',  }}>
+                <table className='table m-5'>
+                    <thead>
+                        <tr>
+                            <th scope='col'>ID</th>
+                            <th scope='col'>Door Name</th>
+                            <th scope='col'>Door Type</th>
+                            <th scope='col'>Manufacturer</th>
+                            <th scope='col'>Certification</th>
+                            <td>Action</td>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {doorList.map((door, index) => (
+                            <tr key={index} className='border'>
+                                <td>{door.id}</td>
+                                <td>{door.doorName}</td>
+                                <td>{door.doorType}</td>
+                                <td>{door.manufacturer}</td>
+                                <td>{door.certification}</td>
+                                <td>
+                                    <button onClick={() => handleView(door.id)} className='btn btn-primary mr-3'>View</button>
+                                    <button onClick={() => handleDelete(door.id)} className='btn btn-danger'>Delete</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </>
 
     )
